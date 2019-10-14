@@ -1,5 +1,5 @@
 ; Switches between various explorer windows  
-F1::
+F3::
 IfWinNotExist, ahk_class CabinetWClass
 	Run, explorer.exe
 GroupAdd, danexplorers, ahk_class CabinetWClass
@@ -10,7 +10,7 @@ else
 Return 
 
 ; Switches between various open Chrome Tabs
-F2::
+F4::
 IfWinNotExist, ahk_class Chrome_WidgetWin_1
 	Run, chrome.exe
 if WinActive("ahk_class Chrome_WidgetWin_1")
@@ -19,6 +19,12 @@ else
 	WinActivate ahk_class Chrome_WidgetWin_1
 Return 
 
-
-
-
+; Switches between various open Firefox Tabs
+F5::
+IfWinNotExist, ahk_class MozillaWindowClass
+	Run, firefox.exe
+if WinActive("ahk_class MozillaWindowClass")
+	Send ^{Tab}
+else
+	WinActivate ahk_class MozillaWindowClass
+Return 
